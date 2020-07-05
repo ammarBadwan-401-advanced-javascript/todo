@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-- [Pull Request]()
+- [Pull Request](https://github.com/ammarBadwan-401-advanced-javascript/todo/pull/1)
 
 ### How to initialize the application
 
