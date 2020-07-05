@@ -8,6 +8,10 @@ const ToDo = props => {
 
   const [list,setList] = useState(savedList);
 
+  useEffect(()=>{
+    document.title = `TODO: ${list.filter(item => !item.complete).length} ITEMS`;
+  },[list]);
+
 
   const _addItem = item =>{
     item._id = Math.random();
