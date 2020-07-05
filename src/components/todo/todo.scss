@@ -33,12 +33,23 @@ body, html {
 
         display:flex;
         flex-direction:column;
-        margin-right: 2em;
+        margin:10px 25px;
+
+        h3{
+            font-size: 22px;
+        }
 
         label {
             display: flex;
             flex-direction:column;
             margin-bottom: 1em;
+        }
+        button {
+            margin: 15px 0;
+            width: 50%;
+        }
+        input {
+            margin-bottom: 10px;
         }
     }
 
@@ -91,4 +102,8 @@ body, html {
         }
     }
 
+}
+
+.range {
+    margin-top: 10px;
 }
