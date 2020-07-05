@@ -17,7 +17,6 @@ body, html {
 
     .item {
         flex:1;
-        padding: 1em;
     }
 
 }
@@ -63,32 +62,25 @@ body, html {
             align-items: center;
             display:flex;
             flex-direction:row;
-            font-size: .75em;
-            margin: .75em .5em;
+
 
             &.complete-true {
-              span {
                 background: pink;
                 text-decoration:line-through;
+                
                 &:hover {
                    background: seagreen;
                 }
-              }
             }
 
-            span {
-                background: #e0e0e0;
+
                 cursor:pointer;
                 &:hover {
                     background: pink;
                 }
-            }
-             span, input {
                  border: .5px solid #eee;
                  display:inline-block;
-                 padding: .2em .25em;
                  width: 300px;
-             }
 
             button {
                 background: transparent;
@@ -96,7 +88,6 @@ body, html {
                 color:blue;
                 cursor:pointer;
                 padding:0;
-                margin: 0 .75em;
             }
 
         }

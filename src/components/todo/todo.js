@@ -1,7 +1,8 @@
 import React, {useState,useEffect} from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
-
+import Navbar from 'react-bootstrap/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import './todo.scss';
@@ -34,9 +35,11 @@ const ToDo = props => {
   return (
     <>
       <header>
-        <h2>
-        There are {list.filter(item => !item.complete).length} Items To Complete
-        </h2>
+        <Navbar bg="primary" variant="dark">
+          <Navbar.Brand>
+          <h2>To Do List Manager ({list.filter(item => !item.complete).length})</h2>
+          </Navbar.Brand>
+        </Navbar>
       </header>
 
       <section className="todo">
