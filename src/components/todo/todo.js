@@ -37,13 +37,13 @@ const ToDo = props => {
       <header>
         <Navbar bg="primary" variant="dark">
           <Navbar.Brand>
-          <h2>To Do List Manager ({list.filter(item => !item.complete).length})</h2>
+            <h1>Home</h1>
           </Navbar.Brand>
         </Navbar>
       </header>
 
       <section className="todo">
-
+        <h2>To Do List Manager ({list.filter(item => !item.complete).length})</h2>
         <div>
           <TodoForm handleSubmit={_addItem} />
         </div>
