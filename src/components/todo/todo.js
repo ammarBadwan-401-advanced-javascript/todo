@@ -11,12 +11,13 @@ import './todo.scss';
 const ToDo = props => {
 
   const [list,setList] = useState([]);
-  const [_addItem] = useAjax(addToList);
+  const [_addItem,_toggleComplete,_deleteList] = useAjax(addToList, list,toggle);
 
   function addToList(item){
-    console.log('heloleoeo');
-    console.log(item)
     setList([...list,item]);
+  }
+  function toggle(item){
+    setList(item);
   }
 
 
@@ -31,15 +32,6 @@ const ToDo = props => {
       setList([...result.data])
     })
   },[]);
-
-  const _toggleComplete = id =>{
-    let item = list.filter(i => i._id === id)[0] || {};
-    if (item._id) {
-      item.complete = !item.complete;
-      let theList = list.map(listItem => listItem._id === item._id ? item : listItem);
-      setList(theList);
-    }
-  }
 
 
   return (
@@ -62,6 +54,7 @@ const ToDo = props => {
           <TodoList
             list={list}
             handleComplete={_toggleComplete}
+            handleDelete={_deleteList}
           />
         </div>
       </section>

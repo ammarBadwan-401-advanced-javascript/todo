@@ -72,20 +72,34 @@ body, html {
             align-items: center;
             display:flex;
             flex-direction:row;
-
+            span{
+                font-weight: bold;
+                
+            }
+            .strike{
+                background-color: green;
+                border-radius: 20px;
+                color:white;
+                padding: 5px;
+                cursor:pointer;
+            }
+            .deleteItem{
+                position: absolute;
+                right: 10px;
+                cursor:pointer;
+            }
 
             &.complete-true {
-                background: pink;
-                text-decoration:line-through;
-                
-                &:hover {
-                   background: seagreen;
-                }
+                .strike{
+                    background-color: red;
+                    color:white;
+                    
+
+
             }
-                cursor:pointer;
-                &:hover {
-                    background: pink;
-                }
+            
+            }
+
                  border: .5px solid #eee;
                  display:inline-block;
                  width: 300px;
@@ -109,4 +123,8 @@ body, html {
 h1{
     font-size: 18px;
     color:aqua;
+}
+small{
+    position: absolute;
+    right: 10px;
 }
