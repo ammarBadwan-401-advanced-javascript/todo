@@ -1,0 +1,130 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding:0;
+    width: 100%;
+}
+.todo-details {
+    display:flex;
+    flex-direction:column;
+
+    header {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        padding:.5em 1em;
+    }
+
+    .item {
+        flex:1;
+    }
+
+}
+
+.todo {
+
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 2em;
+    
+    h2{
+        width: 100%;
+        background-color: rgb(70, 69, 69);
+        color:white;
+        padding: 10px;
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    form {
+
+        display:flex;
+        flex-direction:column;
+        margin:10px 25px;
+
+        h3{
+            font-size: 22px;
+        }
+
+        label {
+            display: flex;
+            flex-direction:column;
+            margin-bottom: 1em;
+        }
+        button {
+            margin: 15px 0;
+            width: 50%;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    }
+
+    ul {
+        list-style-type:none;
+        margin-left: 5em;
+        padding:0;
+
+        li {
+
+            align-items: center;
+            display:flex;
+            flex-direction:row;
+            span{
+                font-weight: bold;
+                
+            }
+            .strike{
+                background-color: green;
+                border-radius: 20px;
+                color:white;
+                padding: 5px;
+                cursor:pointer;
+            }
+            .deleteItem{
+                position: absolute;
+                right: 10px;
+                cursor:pointer;
+            }
+
+            &.complete-true {
+                .strike{
+                    background-color: red;
+                    color:white;
+                    
+
+
+            }
+            
+            }
+
+                 border: .5px solid #eee;
+                 display:inline-block;
+                 width: 300px;
+
+            button {
+                background: transparent;
+                border:none;
+                color:blue;
+                cursor:pointer;
+                padding:0;
+            }
+
+        }
+    }
+
+}
+
+.range {
+    margin-top: 10px;
+}
+h1{
+    font-size: 18px;
+    color:aqua;
+}
+small{
+    position: absolute;
+    right: 10px;
+}
