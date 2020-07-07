@@ -2,7 +2,8 @@ import React,{useContext} from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import {PaginationContext} from '../todo/todo';
-import Pagination from 'react-bootstrap/Pagination'
+import Pagination from 'react-bootstrap/Pagination';
+import Button from 'react-bootstrap/Button';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,10 +14,14 @@ const TodoList = props => {
     pageNumbers.push(i);
   }
 
+
+
+
   console.log(pageContext)
   return (
       
       <ListGroup as="ul">
+        <Button onClick={pageContext.sortDifficulty} variant="primary">Sort by difficulty</Button>
         {pageContext.currentPosts.map(item => (
           <Card style={{width:'300px',margin:'0 0 10px 0'}} key={item._id}>
             <ListGroup.Item className={`complete-${item.complete.toString()}`} as="li">

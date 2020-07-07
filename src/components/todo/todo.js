@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react';
 import useAjax from '../hooks/useAjax';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
@@ -16,6 +17,7 @@ const ToDo = props => {
   const [_addItem,_toggleComplete,_deleteList] = useAjax(addToList, list,toggle);
   const [currentPage, setCurrentPage] = useState(1);
   const [shownTasks, setShownTasks] = useState(3);
+  const [reload,setReload] = useState(true);
 
   function addToList(item){
     setList([...list,item]);
@@ -27,6 +29,14 @@ const ToDo = props => {
   function setPage(page){
     setCurrentPage(page);
   }
+  function sortDifficulty(){
+    console.log('HI')
+    
+    let sortedList = list.sort((a,b)=>a.difficulty < b.difficulty ? 1 : -1);
+    setList(sortedList);
+    setReload(!reload);
+  }
+
 
 
   const indexOfLastPost = currentPage * shownTasks;
@@ -42,6 +52,9 @@ const ToDo = props => {
       currentPosts,
       pages,
       setPage:setPage,
+      setList,
+      sortDifficulty,
+
   };
 
 
@@ -69,7 +82,8 @@ const ToDo = props => {
       </header>
 
       <section className="todo">
-        <h2>To Do List Manager ({list.filter(item => !item.complete).length})</h2>
+        <h2>To Do List Manager ({list.filter(item => !item.complete).length}) </h2>
+        
         <div>
           <TodoForm handleSubmit={_addItem} />
         </div>
