@@ -8,10 +8,14 @@ import axios from 'axios';
 
 import './todo.scss';
 
+export const PaginationContext = React.createContext();
+
 const ToDo = props => {
 
   const [list,setList] = useState([]);
   const [_addItem,_toggleComplete,_deleteList] = useAjax(addToList, list,toggle);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [shownTasks, setShownTasks] = useState(3);
 
   function addToList(item){
     setList([...list,item]);
@@ -19,6 +23,26 @@ const ToDo = props => {
   function toggle(item){
     setList(item);
   }
+
+  function setPage(page){
+    setCurrentPage(page);
+  }
+
+
+  const indexOfLastPost = currentPage * shownTasks;
+  const indexOfFirstPost = indexOfLastPost - shownTasks;
+  const currentPosts = list.slice(indexOfFirstPost,indexOfLastPost)
+  const pages = Math.ceil((list.length/shownTasks));
+  const theState = {
+      currentPage,
+      shownTasks,
+      list,
+      handleComplete: _toggleComplete,
+      handleDelete:_deleteList,
+      currentPosts,
+      pages,
+      setPage:setPage,
+  };
 
 
   useEffect(()=>{
@@ -51,11 +75,9 @@ const ToDo = props => {
         </div>
 
         <div>
-          <TodoList
-            list={list}
-            handleComplete={_toggleComplete}
-            handleDelete={_deleteList}
-          />
+          <PaginationContext.Provider value={theState}>
+          <TodoList/>
+          </PaginationContext.Provider>
         </div>
       </section>
     </>
