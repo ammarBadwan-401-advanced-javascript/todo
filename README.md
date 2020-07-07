@@ -1,4 +1,4 @@
-# LAB - 31
+# LAB - 33
 
 ## Todo 
 
@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-- [Pull Request](https://github.com/ammarBadwan-401-advanced-javascript/todo/pull/2)
+- [Pull Request](https://github.com/ammarBadwan-401-advanced-javascript/todo/pull/3)
 
 ### How to initialize the application
 

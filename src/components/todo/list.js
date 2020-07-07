@@ -21,7 +21,7 @@ const TodoList = props => {
   return (
       
       <ListGroup as="ul">
-        <Button onClick={pageContext.sortDifficulty} variant="primary">Sort by difficulty</Button>
+        <Button onClick={pageContext.sortDifficulty} variant="primary">Sort by hardest to easiestdifficulty</Button>
         {pageContext.currentPosts.map(item => (
           <Card style={{width:'300px',margin:'0 0 10px 0'}} key={item._id}>
             <ListGroup.Item className={`complete-${item.complete.toString()}`} as="li">
