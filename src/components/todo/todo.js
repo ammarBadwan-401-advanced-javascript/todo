@@ -1,7 +1,9 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect, useContext} from 'react';
 import useAjax from '../hooks/useAjax';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import Login from '../auth/login';
+import LoginContext from '../auth/context';
 import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
@@ -17,6 +19,9 @@ const ToDo = props => {
   const [currentPage, setCurrentPage] = useState(1);
   const [shownTasks, setShownTasks] = useState(3);
   const [reload,setReload] = useState(true);
+
+  // const loginContext = useContext(LoginContext)
+
 
   function addToList(item){
     setList([...list,item]);
@@ -78,6 +83,11 @@ const ToDo = props => {
             <h1>Home</h1>
           </Navbar.Brand>
         </Navbar>
+
+        <LoginContext>
+          <Login/>
+        </LoginContext>
+
       </header>
 
       <section className="todo">
