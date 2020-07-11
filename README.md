@@ -1,4 +1,4 @@
-# LAB - 33
+# LAB - 34
 
 ## Todo 
 
@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-- [Pull Request](https://github.com/ammarBadwan-401-advanced-javascript/todo/pull/3)
+- [Pull Request](https://github.com/ammarBadwan-401-advanced-javascript/todo/pull/4)
 
 ### How to initialize the application
 
@@ -19,6 +19,11 @@
 3. `form.js`
 4. `useAjax.js`
 5. `useForm.js`
+6. `auth.js`
+7. `context.js`
+8. `login.js`
+9. `show.js`
+10. `signup.js`
 
 ### UML
 

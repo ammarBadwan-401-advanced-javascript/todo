@@ -14,6 +14,7 @@ class LoginProvider extends React.Component{
       loggedIn: false,
       login: this.login,
       logout: this.logout,
+      signup:this.signup,
       user: {},
     }
   }
@@ -31,11 +32,25 @@ class LoginProvider extends React.Component{
         this.validateToken(res.data.token);
       })
       .catch(e => console.log(e))
-
-    }
-
+  }
+  
   logout = () => {
     this.setLoginState(false, null, {});
+  }
+
+  signup = (username,password,role,email) => {
+    axios.post(`${API}/signup`,{
+      username,
+      password,
+      role,
+      email
+    })
+    .then(res=>{
+      console.log('Sign up response');
+      console.log(res)
+      this.validateToken(res.data.token);
+    })
+    .catch(e => console.log(e))
   }
 
   validateToken = token => {

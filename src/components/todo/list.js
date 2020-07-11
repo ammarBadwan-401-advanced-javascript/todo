@@ -1,6 +1,7 @@
 import React,{useContext} from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
+import Auth from '../auth/auth';
 import {PaginationContext} from '../todo/todo';
 import Pagination from 'react-bootstrap/Pagination';
 import Button from 'react-bootstrap/Button';
@@ -25,7 +26,17 @@ const TodoList = props => {
         {pageContext.currentPosts.map(item => (
           <Card style={{width:'300px',margin:'0 0 10px 0'}} key={item._id}>
             <ListGroup.Item className={`complete-${item.complete.toString()}`} as="li">
-              {item.complete ?  (<span onClick={() => pageContext.handleComplete(item)} className="strike">Complete</span>): (<span onClick={() => pageContext.handleComplete(item)} className="strike">Pending</span>)} <span>{item.assignee}</span> <span onClick={() => pageContext.handleDelete(item._id)}  className="deleteItem">X</span>
+
+              <Auth capability="update">
+
+                {item.complete ?  (<span onClick={() => pageContext.handleComplete(item)} className="strike">Complete</span>): (<span onClick={() => pageContext.handleComplete(item)} className="strike">Pending</span>)} 
+
+              </Auth>
+              <span>{item.assignee}</span>
+              <Auth capability="delete">
+                 <span onClick={() => pageContext.handleDelete(item._id)}  className="deleteItem">X</span>
+              </Auth>
+
               </ListGroup.Item>
               <Card.Body>
               <Card.Title>{item.text} </Card.Title>

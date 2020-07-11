@@ -2,6 +2,8 @@ import React, {useState,useEffect, useContext} from 'react';
 import useAjax from '../hooks/useAjax';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import Auth from '../auth/auth';
+import Signup from '../auth/signup'
 import Login from '../auth/login';
 import LoginContext from '../auth/context';
 import Navbar from 'react-bootstrap/Navbar';
@@ -76,34 +78,39 @@ const ToDo = props => {
 
 
   return (
-    <>
+    <LoginContext>
       <header>
         <Navbar bg="primary" variant="dark">
           <Navbar.Brand>
             <h1>Home</h1>
           </Navbar.Brand>
-        </Navbar>
-
-        <LoginContext>
+          
           <Login/>
-        </LoginContext>
-
+        </Navbar>
       </header>
 
-      <section className="todo">
-        <h2>To Do List Manager ({list.filter(item => !item.complete).length}) </h2>
-        
-        <div>
-          <TodoForm handleSubmit={_addItem} />
-        </div>
+      <Signup/>
 
-        <div>
-          <PaginationContext.Provider value={theState}>
-          <TodoList/>
-          </PaginationContext.Provider>
-        </div>
-      </section>
-    </>
+      <Auth>
+
+        <section className="todo">
+          <h2>To Do List Manager ({list.filter(item => !item.complete).length}) </h2>
+          
+          <div>
+            <Auth capability="create">
+              <TodoForm handleSubmit={_addItem} />
+            </Auth>
+          </div>
+
+          <div>
+            <PaginationContext.Provider value={theState}>
+            <TodoList/>
+            </PaginationContext.Provider>
+          </div>
+        </section>
+
+      </Auth>
+    </LoginContext>
   );
 }
 
